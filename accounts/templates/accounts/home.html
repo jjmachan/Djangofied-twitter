@@ -18,11 +18,11 @@
   {% if tweets %}
     <ul>
       {% for tweet in tweets %}
-      <div class='container'>
-        <p>{{tweet.tweet_date}}</p>
-        <p class='float-right'>[{{tweet.tweet.likes}}]</p>
-        <h5>{{tweet.tweet_text}}</h5>
-        <em class='float-right'>- {{ tweet.tweet_by }}</em>
+      <div class='container tweet'>
+        <p class='date'>{{tweet.tweet_date}}</p>
+        {% comment %}<p class='float-right'>[{{tweet.tweet.likes}}]</p>{% endcomment %}
+        <p class='tweet-text'>{{tweet.tweet_text}}</p>
+        <p class='username'>- {{ tweet.tweet_by }}</p>
       </div>
       {% endfor %}
     </ul>
