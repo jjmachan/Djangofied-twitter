@@ -1,0 +1,9 @@
+version: "3.5"
+
+services:
+  web:
+    build: .
+    volumes:
+      - .:/deploy/app
+    ports:
+      - 8000:8000
