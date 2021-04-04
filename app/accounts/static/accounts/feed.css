@@ -1,0 +1,13 @@
+p.date{
+    font-size: 0.7em;
+    color: gray;
+}
+
+p.tweet-text {
+  font-size: 1.3em;
+  font-style: italic;
+}
+
+p.username {
+  text-align: right
+}

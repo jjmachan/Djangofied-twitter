@@ -1,0 +1,34 @@
+{% extends 'accounts/index.html' %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+{% if user.is_authenticated %}
+<div class='container py-5'>
+  <form method='POST'>
+    {% csrf_token %}
+    {{ post_tweet | crispy }}
+    <button class="btn btn-primary float-right" type="submit">Tweet</button>
+  </form>
+</div>
+
+{% endif %}
+<div class="container py-5">
+  {% if tweets %}
+    <ul>
+      {% for tweet in tweets %}
+      <div class='container tweet'>
+        <p class='date'>{{tweet.tweet_date}}</p>
+        {% comment %}<p class='float-right'>[{{tweet.tweet.likes}}]</p>{% endcomment %}
+        <p class='tweet-text'>{{tweet.tweet_text}}</p>
+        <p class='username'>- {{ tweet.tweet_by }}</p>
+      </div>
+      {% endfor %}
+    </ul>
+  {% else %}
+      <p>No polls are available.</p>
+  {% endif %}
+</div>
+
+{% endblock %}
